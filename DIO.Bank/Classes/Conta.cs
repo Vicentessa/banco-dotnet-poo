@@ -9,14 +9,16 @@ namespace DIO.Bank
 		private double Saldo { get; set; }
 		private double Credito { get; set; }
 		private string Nome { get; set; }
+		private int CodigoBanco { get; set; }
 
 		// Métodos
-		public Conta(TipoConta tipoConta, double saldo, double credito, string nome)
+		public Conta(TipoConta tipoConta, double saldo, double credito, string nome, int codigobanco)
 		{
 			this.TipoConta = tipoConta;
-			this.Saldo = saldo + 10;
-			this.Credito = credito + 5;
-			this.Nome = nome + "C";
+			this.Saldo = saldo;
+			this.Credito = credito;
+			this.Nome = nome;
+			this.CodigoBanco = codigobanco;
 		}
 
 		public bool Sacar(double valorSaque)
@@ -56,6 +58,11 @@ namespace DIO.Bank
             retorno += "Saldo " + this.Saldo + " | ";
             retorno += "Crédito " + this.Credito;
 			return retorno;
+		}
+
+		public int indexCodigoBanco()
+		{
+			return this.CodigoBanco + 1;
 		}
 	}
 }

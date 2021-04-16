@@ -6,8 +6,15 @@ namespace DIO.Bank
 	class Program
 	{
 		static List<Conta> listContas = new List<Conta>();
+		static List<Banco> listBancos = new List<Banco>();
 		static void Main(string[] args)
 		{
+			// Cria lista de bancos
+			Banco Caixa = new Banco(1, "Banco do Brasil");
+			Banco BB = new Banco(2, "Caixa Exonômixa Federal");
+			listBancos.Add(Caixa);
+			listBancos.Add(BB);
+
 			string opcaoUsuario = ObterOpcaoUsuario();
 
 			do
@@ -34,9 +41,6 @@ namespace DIO.Bank
                     case "C":
 						Console.Clear();
 						break;
-
-					default:
-						throw new ArgumentOutOfRangeException();
 				}
 				
 			} while (opcaoUsuario.ToUpper() != "X");
@@ -88,6 +92,9 @@ namespace DIO.Bank
 			Console.Write("Digite 1 para Conta Fisica ou 2 para Juridica: ");
 			int entradaTipoConta = int.Parse(Console.ReadLine());
 
+			Console.Write("Digite o código do banco: ");
+			int iCodigoBanco = int.Parse(Console.ReadLine());
+
 			Console.Write("Digite o Nome do Cliente: ");
 			string entradaNome = Console.ReadLine();
 
@@ -100,7 +107,8 @@ namespace DIO.Bank
 			Conta novaConta = new Conta(tipoConta: (TipoConta)entradaTipoConta,
 										saldo: entradaSaldo,
 										credito: entradaCredito,
-										nome: entradaNome);
+										nome: entradaNome,
+										codigobanco: iCodigoBanco);
 
 			listContas.Add(novaConta);
 		}
@@ -120,6 +128,8 @@ namespace DIO.Bank
 				Conta conta = listContas[i];
 				Console.Write("#{0} - ", i);
 				Console.WriteLine(conta);
+				//Console.WriteLine(listBancos[conta.indexCodigoBanco()].ToString());
+				Console.WriteLine(listBancos[conta.indexCodigoBanco()].ToString());
 			}
 		}
 
