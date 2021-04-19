@@ -12,6 +12,18 @@ namespace DIO.Bank
             this.Nome = nome;
         }
 
+        public int CodigoBanco
+		{
+          get{return Codigo;}
+          set{Codigo = value;}
+        }
+        
+        public string NomeBanco
+		{
+          get{return Nome;}
+          set{Nome = value;}
+        }
+
         public override string ToString()
         {
             return this.Codigo + " - " + this.Nome;

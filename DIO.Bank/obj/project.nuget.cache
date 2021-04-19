@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JTMkAoaMtmjPFZH72OqRjv+GcoFmfiAyKJOtCLYdYvvNdGWy3xd2QpZwnwZR9tE0vjgdcclfD+ynL2nSxsPTrw==",
+  "dgSpecHash": "nqrDGOVE1nZBAtSsb2z/XnZg8Xm0OBaP02hjt/ZdIGYrpaqnEPo2DT8lk8IGwMXUOhdncxyA7gYBjEdxnFnCSg==",
   "success": true,
-  "projectFilePath": "C:\\WorkSpace\\banco-dotnet-poo\\DIO.Bank\\DIO.Bank.csproj",
+  "projectFilePath": "C:\\WorkSpace\\banco-dotnet-poo\\dio.bank\\DIO.Bank.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

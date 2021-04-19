@@ -10,12 +10,16 @@ namespace DIO.Bank
 		static void Main(string[] args)
 		{
 			// Cria lista de bancos
-			Banco Caixa = new Banco(1, "Banco do Brasil");
-			Banco BB = new Banco(2, "Caixa Exonômixa Federal");
-			listBancos.Add(Caixa);
-			listBancos.Add(BB);
+			Banco Caixa = new Banco(001, "Banco do Brasil");
+			Banco BB = new Banco(104, "Caixa Exonômixa Federal");
+			Banco Bradesco = new Banco(237, "Banco Bradesco S.A.");
+			Banco BMG = new Banco(318, "Banco BMG S.A");
 
-			string opcaoUsuario = ObterOpcaoUsuario();
+            listBancos.Add(Caixa);
+			listBancos.Add(BB);
+			listBancos.Add(Bradesco);
+			listBancos.Add(BMG);
+			string opcaoUsuario;
 
 			do
 			{
@@ -88,29 +92,58 @@ namespace DIO.Bank
 		private static void InserirConta()
 		{
 			Console.WriteLine("Inserir nova conta");
+			try
+			{
+				// Lista a tabela de bancos
+				Console.WriteLine("\n*** LISTA DE BANCOS ***");
+				foreach (var b in listBancos)
+				{
+					Console.WriteLine(b.ToString());
+				}
+				Console.WriteLine("---------------------------");
+				// Solicita o código do banco
+				Console.Write("Digite o código do banco: ");
+				int iCodigoBanco = int.Parse(Console.ReadLine());
+				// Verifica se o banco existe
+				Banco banco = listBancos.Find(delegate(Banco p1) { return p1.CodigoBanco == iCodigoBanco; });
+				if (banco.CodigoBanco == 0)
+				{
+					Console.WriteLine("Atenção! Banco não cadastrado.");
+					Console.WriteLine("Pressione uma tecla para continuar...");
+					Console.ReadLine();
+					Console.Clear();
+					return;
+				}
 
-			Console.Write("Digite 1 para Conta Fisica ou 2 para Juridica: ");
-			int entradaTipoConta = int.Parse(Console.ReadLine());
+				Console.Write("Digite 1 para Conta Fisica ou 2 para Juridica: ");
+				int entradaTipoConta = int.Parse(Console.ReadLine());
 
-			Console.Write("Digite o código do banco: ");
-			int iCodigoBanco = int.Parse(Console.ReadLine());
+				Console.Write("Digite o Nome do Cliente: ");
+				string entradaNome = Console.ReadLine();
 
-			Console.Write("Digite o Nome do Cliente: ");
-			string entradaNome = Console.ReadLine();
+				Console.Write("Digite o saldo inicial: ");
+				double entradaSaldo = double.Parse(Console.ReadLine());
 
-			Console.Write("Digite o saldo inicial: ");
-			double entradaSaldo = double.Parse(Console.ReadLine());
+				Console.Write("Digite o crédito: ");
+				double entradaCredito = double.Parse(Console.ReadLine());
 
-			Console.Write("Digite o crédito: ");
-			double entradaCredito = double.Parse(Console.ReadLine());
+				Conta novaConta = new Conta(tipoConta: (TipoConta)entradaTipoConta,
+											saldo: entradaSaldo,
+											credito: entradaCredito,
+											nome: entradaNome,
+											codigobanco: iCodigoBanco);
 
-			Conta novaConta = new Conta(tipoConta: (TipoConta)entradaTipoConta,
-										saldo: entradaSaldo,
-										credito: entradaCredito,
-										nome: entradaNome,
-										codigobanco: iCodigoBanco);
+				listContas.Add(novaConta);
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine("ERRO: " + ex.Message);
+				Console.WriteLine("Pressione uma tecla para continuar...");
+				Console.ReadLine();
+				Console.Clear();
+				return;
+			}
 
-			listContas.Add(novaConta);
 		}
 
 		private static void ListarContas()
@@ -126,10 +159,11 @@ namespace DIO.Bank
 			for (int i = 0; i < listContas.Count; i++)
 			{
 				Conta conta = listContas[i];
-				Console.Write("#{0} - ", i);
+				Banco banco = listBancos.Find(delegate(Banco p1) { return p1.CodigoBanco == conta.indexCodigoBanco(); });
+
+				Console.Write("Conta: {0} | ", i);
+				Console.WriteLine("Banco: {0} - {1}", banco.CodigoBanco, banco.NomeBanco);
 				Console.WriteLine(conta);
-				//Console.WriteLine(listBancos[conta.indexCodigoBanco()].ToString());
-				Console.WriteLine(listBancos[conta.indexCodigoBanco()].ToString());
 			}
 		}
 

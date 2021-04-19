@@ -8,23 +8,23 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\vicente.santos\\.nuget\\packages\\": {},
+    "C:\\Users\\Vicente\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\WorkSpace\\banco-dotnet-poo\\DIO.Bank\\DIO.Bank.csproj",
+      "projectUniqueName": "C:\\WorkSpace\\banco-dotnet-poo\\dio.bank\\DIO.Bank.csproj",
       "projectName": "DIO.Bank",
-      "projectPath": "C:\\WorkSpace\\banco-dotnet-poo\\DIO.Bank\\DIO.Bank.csproj",
-      "packagesPath": "C:\\Users\\vicente.santos\\.nuget\\packages\\",
-      "outputPath": "C:\\WorkSpace\\banco-dotnet-poo\\DIO.Bank\\obj\\",
+      "projectPath": "C:\\WorkSpace\\banco-dotnet-poo\\dio.bank\\DIO.Bank.csproj",
+      "packagesPath": "C:\\Users\\Vicente\\.nuget\\packages\\",
+      "outputPath": "C:\\WorkSpace\\banco-dotnet-poo\\dio.bank\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\vicente.santos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Vicente\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }
